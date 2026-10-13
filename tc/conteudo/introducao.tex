@@ -1,19 +1,44 @@
 \chapter{INTRODUÇÃO}
 
-As orientações aqui apresentadas são baseadas em um conjunto de normas elaboradas pela ABNT. Além das normas técnicas a Biblioteca também elaborou  um guia para elaboração de trabalhos acadêmicos que está disponível na sua Homepage. < http://biblioteca.ifc.edu.br/normalizacao-de-trabalhos//>. 
+O trânsito urbano envolve diferentes fatores que atuam ao mesmo tempo, como a estrutura das vias, o volume de veículos, os cruzamentos, os semáforos e as decisões tomadas pelos motoristas durante o deslocamento. O aumento da quantidade de veículos pode contribuir para problemas como atrasos, lentidão e maior tempo de viagem, principalmente quando a infraestrutura existente não acompanha a demanda de tráfego \cite{dorokhin_2020}. Além das condições da própria rede viária, as características dos condutores também podem influenciar o desempenho do fluxo, uma vez que diferentes comportamentos de condução afetam a forma como os veículos interagem entre si \cite{zhai_2021}. Neste trabalho, será utilizado como referência um recorte urbano no entorno da Praça Nereu Ramos, em Videira/SC, a partir do qual será construído um cenário simplificado de simulação.
 
-Exemplos para referências: \cite{Alisson2025, Brasil2018, Das2023, Desdentado2025, Fernandes2025, Qureca2025, US2026}.
+Em situações do cotidiano, pequenas ações individuais podem alterar a fluidez do trânsito. Trocas de faixa, frenagens bruscas, hesitações em cruzamentos, diferentes tempos de reação e escolhas feitas durante a condução podem provocar efeitos que se espalham para outros veículos. Em trechos urbanos com maior movimento, esses comportamentos tendem a ficar mais perceptíveis, principalmente em cruzamentos, conversões ou trechos com redução da capacidade da via.
+
+Uma forma de estudar esse tipo de problema é por meio da simulação computacional. Com ela, é possível representar cenários de tráfego e alterar determinadas condições sem interferir diretamente em uma via real. Isso permite testar diferentes situações de maneira controlada, observando como mudanças no fluxo de veículos, na estrutura do cenário ou no comportamento dos motoristas podem influenciar os resultados obtidos \cite{dorokhin_2020}.
+
+Entre as abordagens utilizadas na simulação de tráfego, a simulação microscópica se mostra adequada quando o objetivo é observar o comportamento individual dos veículos. Nesse tipo de modelagem, veículos e motoristas podem ser representados separadamente, permitindo analisar suas interações ao longo da rede viária \cite{brambila_2008}. \citeonline{kotusevski_2009} também destacam que, em modelos microscópicos, cada veículo pode ser tratado como um agente independente, o que permite observar como decisões individuais influenciam o funcionamento geral do sistema.
+
+Essa característica é importante para este trabalho, pois o foco não está apenas em simular a quantidade de veículos em uma via, mas em analisar como diferentes perfis de condução podem alterar o desempenho do tráfego. Estudos sobre comportamento de motoristas indicam que perfis distintos, como condutores mais agressivos ou mais cautelosos, podem influenciar a estabilidade e a dinâmica do fluxo de veículos \cite{zhai_2021}. Assim, ferramentas de simulação microscópica, como o \gls{sumo}, tornam possível configurar cenários urbanos e investigar computacionalmente os efeitos desses comportamentos \cite{lopez_2018}.
+
+Dessa forma, este trabalho tem como foco a análise do impacto de diferentes comportamentos de motoristas no desempenho do tráfego urbano, utilizando simulação computacional em um cenário urbano simplificado baseado no recorte do entorno da Praça Nereu Ramos, em Videira/SC. A partir disso, busca-se responder ao seguinte problema de pesquisa: como diferentes comportamentos de motoristas influenciam o desempenho do tráfego urbano em cenários simulados?
 
 \section{Objetivos}
 
 \subsection{Objetivo Geral}
-	
-Descrição...
 
-\subsection{Objetivos Específicos} 
+Analisar o impacto de diferentes comportamentos de motoristas no desempenho do tráfego urbano por meio de simulação computacional.
 
-Descrição...
+\subsection{Objetivos Específicos}
 
-% 
+\begin{itemize}
+    \item Definir parâmetros computacionais para representar diferentes perfis de motoristas;
+    \item Construir um cenário de simulação baseado em um recorte simplificado de uma região urbana real;
+    \item Definir cenários de simulação com diferentes níveis de fluxo de veículos e composições de perfis de motoristas;
+    \item Comparar o desempenho do tráfego nos diferentes cenários simulados com base nas métricas definidas para o estudo.
+\end{itemize}
+
+\section{Justificativa}
+
+Problemas relacionados ao trânsito urbano afetam diretamente o deslocamento da população e a eficiência do sistema viário. Mesmo em cidades que não possuem a dimensão dos grandes centros urbanos, é comum encontrar pontos de lentidão em horários de maior movimento, principalmente em regiões centrais, cruzamentos ou vias com grande concentração de veículos. Esses problemas não dependem apenas da quantidade de carros em circulação, mas também da forma como os motoristas se comportam durante o deslocamento.
+
+O comportamento dos condutores pode influenciar o tráfego de diferentes maneiras. Motoristas que aceleram ou freiam de forma brusca, mantêm pouca distância do veículo à frente, hesitam em cruzamentos ou realizam trocas de faixa com frequência podem alterar a fluidez da via. Por outro lado, condutores mais cautelosos também podem gerar impactos, principalmente quando reduzem a velocidade ou aumentam muito o tempo de resposta em determinadas situações. Essas diferenças tornam o trânsito um sistema difícil de analisar apenas por observação direta.
+
+A simulação computacional permite estudar esse tipo de situação de forma mais controlada. Em vez de depender de testes em vias reais, que seriam caros, difíceis de organizar e sujeitos a muitas variáveis externas, é possível construir cenários simulados e repetir experimentos alterando apenas os fatores de interesse. No caso deste trabalho, essa possibilidade é importante porque permite comparar diferentes perfis de motoristas e observar seus efeitos sobre métricas como tempo de viagem, velocidade média, filas e desempenho geral do tráfego.
+
+A escolha por modelos microscópicos também se justifica pelo objetivo do estudo. Como esse tipo de simulação representa veículos e condutores individualmente, torna-se possível observar como decisões locais podem afetar o comportamento coletivo do sistema \cite{brambila_2008}. Isso se aproxima da proposta deste trabalho, que busca analisar o impacto de perfis comportamentais no trânsito urbano, em vez de considerar apenas o fluxo agregado de veículos.
+
+Outro ponto relevante é a utilização de um cenário urbano simplificado baseado em uma região real. O objetivo não é reproduzir todos os detalhes do trânsito real da cidade, mas criar um ambiente de simulação que represente uma situação urbana plausível e permita a realização dos experimentos. Essa escolha ajuda a manter o escopo viável para um trabalho de conclusão de curso, sem abrir mão de uma análise aplicada.
+
+Do ponto de vista acadêmico, o trabalho contribui para a discussão sobre simulação microscópica de tráfego, modelagem de comportamento de motoristas e análise de desempenho em sistemas urbanos. Além disso, o uso do \gls{sumo} permite trabalhar com uma ferramenta reconhecida na área de simulação de tráfego, possibilitando a configuração de cenários, perfis de veículos e coleta de métricas para análise posterior \cite{lopez_2018}. Assim, o estudo une conceitos de modelagem computacional, sistemas multiagentes e mobilidade urbana em uma proposta compatível com a área de Ciência da Computação.
+
 %--------- FIM INTRODUÇÃO------------
-%

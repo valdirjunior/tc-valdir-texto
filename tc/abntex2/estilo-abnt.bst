@@ -1,3 +1,4 @@
+
 %% abntex2-alf.bst, v<VERSION> laurocesar
 %% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 %%

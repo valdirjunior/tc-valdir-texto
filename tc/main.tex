@@ -1,152 +1,141 @@
 %=======================================================================
 %
 % ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% abnTeX2: Modelo de Trabalho Academico  em conformidade com 
+% abnTeX2: Modelo de Trabalho Academico em conformidade com
 % ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos
 % ------------------------------------------------------------------------
-%Customização IFC
+% Customização IFC
 % ------------------------------------------------------------------------
-% Autor:  Tiago Possato (tiago.possato@yahoo.com.br), baseado no modelo de Eliton Tiago (elitontiago@hotmail.com)
-% Adaptação: Fábio Pinheiro (fabio.pinheiro@ifc.edu.br) e Henrique Pieri de Lima (henrique070425@gmail.com)
+% Autor: Tiago Possato (tiago.possato@yahoo.com.br), baseado no modelo de Eliton Tiago
+% Adaptação: Fábio Pinheiro (fabio.pinheiro@ifc.edu.br) e Henrique Pieri de Lima
 % Versão: maio de 2026
 % Codificação: UTF-8
-% LaTeX:  abnTeX2
-%
+% LaTeX: abnTeX2
 %=======================================================================
 
 \documentclass[
-	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte	
-	oneside,          % não imprimir em verso e anverso, oposto do twoside 
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	brazil			% o último idioma é o principal do documento
-	,sumario=tradicional,
-	]{abntex2-IFC}
-
+    12pt,
+    oneside,
+    a4paper,
+    chapter=TITLE,
+    section=TITLE,
+    subsection=TITLE,
+    english,
+    brazil,
+    sumario=tradicional,
+]{abntex2-IFC}
 
 \include{config_inicial}
 
-%----Include da capa é fora do documento 
+% Dados da capa e folha de rosto
 \include{pretextuais/capa}
-%---
 
 \begin{document}
-% Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
 
-%--- CAPA ----
+% CAPA
 \imprimircapa
 
-% --- FOLHA DE ROSTO
+% FOLHA DE ROSTO
 \imprimirfolhaderosto
-% \imprimirfolhaderosto* (o * indica que haverá a ficha bibliográfica)
 
-% Inserir FOLHA DE APROVAÇÃO
+% FOLHA DE APROVAÇÃO
+% Mantida com dados provisórios até a definição da banca/data final.
 \include{pretextuais/folhadeaprovacao}
 
-% Inserir FOLHA DE AUTORIZAÇÃO
+% FOLHA DE AUTORIZAÇÃO
 % \include{pretextuais/folhadeautorizacao}
 
-% DEDICATÓRIA
-\include{pretextuais/dedicatoria}
+% Elementos opcionais. Habilitar quando forem preenchidos.
+% \include{pretextuais/dedicatoria}
+% \include{pretextuais/agradecimentos}
 
-% AGRADECIMENTO
-\include{pretextuais/agradecimentos}
-
-%EPÍGRAFE
-\include{pretextuais/epigrafe}
-
-% RESUMO
+% RESUMO E ABSTRACT
 \include{pretextuais/resumo}
 
-% lista de ilustrações
+% LISTA DE ILUSTRAÇÕES
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage
-% ---
 
-% lista de quadros
-% --- 
-%PRECISO VER COMO FAZER O CONTROLE DE QUANDO TIVER MENOS Q 10 VAI PARA LISTA DE ILUSTRAÇÕES
+% LISTA DE QUADROS
 \pdfbookmark[0]{\listofquadrosname}{loq}
-%\listofquadros*
-%\cleardoublepage
-% ---
+\listofquadros*
+\cleardoublepage
 
 % LISTA DE TABELAS
 \pdfbookmark[0]{\listtablename}{lot}
-%\listoftables*
-%\cleardoublepage  %-- força proxima pagina
+% \listoftables*
+% \cleardoublepage
 
-% ---
-% inserir lista de abreviaturas e siglas
-% ---
-\begin{siglas}
-  \item[SIGLA] descrição
+% LISTA DE ABREVIATURAS E SIGLAS
+\include{pretextuais/acronimos}
 
-\end{siglas}
-% ---
+\renewcommand*{\acronymname}{LISTA DE ACR\^ONIMOS}
 
-% ---
-% inserir lista de símbolos
-% ---
-%\begin{simbolos}
-%  \item[$ \Gamma $] Descrever o que o símbolo representa em seu trabalho. Exemplo abaixo.
-%  \item[$ \omega $] Frequência angular [rad/s].
-%  \item[$ \zeta $] Coeficiente de amortecimento.
+\newglossarystyle{mylong}{%
+    \setglossarystyle{long}%
+    \renewenvironment{theglossary}%
+        {\begin{longtable}[l]{@{}p{\dimexpr 2cm-\tabcolsep}p{0.8\hsize}}}
+        {\end{longtable}}%
+}
 
-%\end{simbolos}
-% ---
+% Mantida a chamada utilizada no PTC, já validada no TeXPage.
+\printglossary[toctitle=Acronymstype=acronym, style=mylong, title=LISTA DE ACR\^ONIMOS]
 
-% SUMARIO
+\cleardoublepage
+\setcounter{figure}{0}
+\setcounter{table}{0}
+
+% SUMÁRIO
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \cleardoublepage
 
-% ------------------------------------------------------
+% ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
-% ------------------------------------------------------
+% ----------------------------------------------------------
 \textual
-% INTRODUÇÃO
+
+% Capítulos já consolidados no PTC
 \include{conteudo/introducao}
+\include{conteudo/fundamentacao}
 
-%Revisão
-\include{conteudo/desenvolvimento}
-
-%CONCLUSÃO
-\include{conteudo/conclusao}
+% ----------------------------------------------------------
+% DESENVOLVIMENTO DO TC
+% ----------------------------------------------------------
+% Os arquivos abaixo foram preservados do PTC como referência textual,
+% mas não são incluídos nesta versão do TC porque serão reestruturados
+% para descrever o trabalho efetivamente realizado.
+%
+% \include{conteudo/metodologia}
+% \include{conteudo/cronograma}
+% \include{conteudo/resultadosesperados}
+%
+% A estrutura dos capítulos posteriores à fundamentação será construída
+% a partir da preparação do cenário, execução dos experimentos,
+% resultados/discussão e conclusão.
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
 \postextual
 
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-
+% REFERÊNCIAS
 \bibliography{referencias}
 
-%Apêndices
+% APÊNDICES
 % \include{postextuais/apendice}
 
-%Anexos
+% ANEXOS
 % \include{postextuais/anexo}
 
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
+% ÍNDICE REMISSIVO
 % \printindex
+
 \end{document}

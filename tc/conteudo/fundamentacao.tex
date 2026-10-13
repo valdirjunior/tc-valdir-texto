@@ -1,0 +1,221 @@
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
+
+\section{Tráfego urbano e mobilidade urbana}
+
+A mobilidade urbana está ligada à forma como pessoas e veículos se deslocam dentro das cidades. Esse tema tem se tornado cada vez mais relevante, principalmente pelo crescimento das áreas urbanas e pelo aumento da quantidade de veículos em circulação. \citeonline{thakre_2024} destacam que o congestionamento urbano está associado a fatores como crescimento populacional, aumento da urbanização, limitações do transporte público, infraestrutura inadequada ou pouco planejada e aumento da quantidade de veículos particulares. Em muitos casos, esses fatores contribuem para problemas como lentidão, filas e aumento no tempo de deslocamento.
+
+O congestionamento é um dos problemas mais visíveis nesse cenário. Ele pode ocorrer quando a quantidade de veículos em uma via se aproxima, ou até ultrapassa, sua capacidade de operação. No entanto, esse problema não depende apenas do número de veículos. Fatores como planejamento urbano, qualidade da infraestrutura, funcionamento do transporte coletivo, cruzamentos, semáforos e conversões também interferem diretamente no desempenho do tráfego \cite{thakre_2024}. Por isso, analisar o trânsito urbano exige observar não apenas a via em si, mas também a forma como ela é utilizada.
+
+Outro ponto importante é que o tráfego urbano não se comporta de maneira totalmente previsível. Pequenas alterações, como uma redução de velocidade, uma conversão mal executada ou uma parada inesperada, podem causar impactos em outros veículos e gerar atrasos ao longo da via. Em regiões com maior fluxo, esses efeitos tendem a ser mais perceptíveis. A formação de filas, a redução da velocidade média e o aumento do tempo de viagem são exemplos de situações comuns quando há alguma limitação na capacidade da via ou interrupções frequentes no fluxo \cite{yu_2016}.
+
+Entre as métricas utilizadas para avaliar o tráfego, o tempo de viagem é uma das mais importantes, pois está diretamente relacionado à experiência de deslocamento dos usuários. Esse tempo pode variar conforme o volume de veículos, as condições da via, a presença de semáforos, a ocorrência de pontos de retenção e também o comportamento dos motoristas \cite{yu_2016}. Assim, mesmo em um mesmo trecho urbano, diferentes condições de circulação podem produzir resultados bastante distintos.
+
+O tráfego urbano também pode ser entendido como um sistema complexo, pois envolve diferentes elementos que interagem ao mesmo tempo. \citeonline{adewumi_2016}, ao discutirem a aplicação da teoria do caos na previsão de fluxos de tráfego em redes urbanas, destacam que esse tipo de sistema pode ser sensível às condições iniciais e às variações que ocorrem durante a circulação. Por isso, a análise da mobilidade urbana não deve considerar apenas a infraestrutura, mas também fatores como o volume de veículos, as regras de circulação, os cruzamentos, as conversões e as decisões tomadas pelos motoristas. A interação entre esses elementos ajuda a compreender como pequenas mudanças nas condições de tráfego podem produzir efeitos mais amplos no desempenho da via.
+
+A modelagem e a simulação computacional são alternativas úteis para analisar sistemas de tráfego com diferentes condições de circulação, permitindo representar cenários e observar os efeitos de alterações sem interferir diretamente no ambiente real \cite{dorokhin_2020}. Essa abordagem também possibilita investigar como diferentes comportamentos de condução podem influenciar o desempenho do tráfego, aspecto relacionado diretamente à proposta deste trabalho \cite{zhai_2021}.
+
+\section{Simulação computacional aplicada ao trânsito}
+
+A simulação computacional é uma técnica utilizada para representar, de forma simplificada, o comportamento de um sistema real. No caso do trânsito, ela permite criar modelos que reproduzem determinadas condições de circulação, como volume de veículos, organização das vias, semáforos, cruzamentos e padrões de deslocamento. \citeonline{kotusevski_2009} destacam que a simulação computacional de tráfego é amplamente utilizada em pesquisas de modelagem, planejamento e desenvolvimento de redes de transporte. De forma semelhante, \citeonline{dorokhin_2020} apontam que a modelagem do movimento é um método utilizado em estudos de tráfego, planejamento e desenvolvimento de redes e sistemas de transporte.
+
+Em estudos de tráfego urbano, a simulação permite testar diferentes cenários antes de qualquer intervenção prática. Por exemplo, é possível alterar o fluxo de veículos, modificar tempos semafóricos, bloquear uma via, mudar uma rota ou observar o comportamento do sistema em horários de maior demanda. Esse tipo de análise auxilia na compreensão dos efeitos que determinadas mudanças podem causar no desempenho da rede viária, sem que seja necessário realizar testes diretamente no ambiente urbano \cite{dorokhin_2020}.
+
+Uma das principais vantagens da simulação é a possibilidade de avaliar cenários sob condições controladas. Em uma via real, o trânsito está sujeito a muitos fatores externos, como clima, acidentes, obras, eventos, comportamento imprevisível dos motoristas e variações na demanda ao longo do dia. \citeonline{kotusevski_2009} observam que experimentar diretamente em redes de tráfego reais nem sempre é prático, o que torna o ambiente simulado uma alternativa útil para investigar esse tipo de sistema. Assim, parte das variáveis pode ser controlada ou isolada, permitindo comparar os resultados de maneira mais organizada, principalmente quando se deseja avaliar o impacto de uma variável específica, como o comportamento dos motoristas.
+
+O nível de detalhamento adotado em uma simulação depende do objetivo e da escala da análise. Diferentes abordagens podem ser utilizadas conforme o interesse esteja no comportamento geral do fluxo ou nas interações individuais entre os veículos \cite{algherbal_2025}. As principais formas de classificação desses modelos são apresentadas na seção seguinte.
+
+Ao comparar diferentes ferramentas de simulação de tráfego, \citeonline{kotusevski_2009} mostram que esses sistemas podem variar em relação ao nível de detalhamento, à interface, à forma de construção da rede, à geração de rotas e aos tipos de saída produzidos. Essas diferenças reforçam a importância de escolher uma ferramenta compatível com os objetivos e as necessidades de cada estudo.
+
+Além do planejamento urbano tradicional, a simulação de tráfego também vem sendo utilizada para avaliar soluções mais específicas, como intervenções sustentáveis e inovadoras em sistemas urbanos de entrega. \citeonline{su_2024} discutem o papel da simulação na análise de intervenções em entregas urbanas, mostrando que esse tipo de abordagem pode apoiar a avaliação de alternativas antes de sua aplicação em larga escala. Embora esse não seja o foco direto deste trabalho, o estudo reforça a utilidade da simulação como ferramenta de apoio à tomada de decisão em contextos urbanos.
+
+No caso da análise do comportamento de motoristas, a simulação apresenta uma vantagem importante: ela permite comparar diferentes perfis de condução em um mesmo cenário. \citeonline{mecheva_2022} destacam que modelos de comportamento de motoristas são parte importante da simulação de tráfego e podem envolver parâmetros relacionados à forma de condução. Além disso, \citeonline{zhai_2021} indicam que características distintas dos condutores, como perfis tímidos e agressivos, podem afetar o desempenho do fluxo de tráfego. Assim, alterações em parâmetros relacionados à aceleração, frenagem, distância de seguimento, tempo de reação ou agressividade podem ser utilizadas para observar possíveis impactos no desempenho do tráfego em ambiente simulado.
+
+\section{Modelos de simulação de tráfego}
+
+Os modelos de simulação de tráfego são geralmente classificados, de acordo com o nível de detalhamento adotado, em macroscópicos, mesoscópicos e microscópicos \cite{dorokhin_2020}. Enquanto os modelos macroscópicos representam o fluxo de forma agregada, os microscópicos descrevem individualmente os veículos e suas interações, e os mesoscópicos ocupam uma posição intermediária entre essas abordagens. \citeonline{lopez_2018} também apresentam a categoria submicroscópica, na qual são representados elementos ainda mais detalhados do veículo. A escolha da abordagem depende do objetivo, da escala do cenário e do nível de detalhe necessário para a análise \cite{algherbal_2025}.
+
+\subsection{Modelos macroscópicos}
+
+Os modelos macroscópicos representam o tráfego de forma agregada, tratando o fluxo de veículos de maneira semelhante a um fluxo contínuo. \citeonline{lopez_2018} indicam que, nesse tipo de abordagem, são simuladas dinâmicas médias dos veículos, como a densidade do tráfego. Assim, o interesse principal está em variáveis como velocidade média, volume de tráfego e densidade de veículos. Em vez de acompanhar cada veículo separadamente, o modelo descreve o comportamento geral do fluxo em uma via ou em uma rede.
+
+Esse tipo de modelo é útil quando o objetivo é analisar áreas maiores, como regiões urbanas extensas, rodovias ou redes viárias completas. Como trabalha com menor nível de detalhe, o modelo macroscópico tende a exigir menos esforço computacional e pode ser mais adequado para estudos em larga escala. Por outro lado, essa simplificação limita a análise de comportamentos individuais, como aceleração, frenagem, mudança de faixa e reação a outros veículos, aspectos mais associados à simulação microscópica \cite{lopez_2018}.
+
+\citeonline{adacher_2018} discutem o uso do \textit{Cell Transmission Model} como uma abordagem macroscópica aplicada a redes urbanas. Nesse modelo, a via é dividida em segmentos e a evolução do fluxo é acompanhada ao longo do tempo, permitindo analisar fenômenos como a formação de congestionamentos e a propagação de filas.
+
+\subsection{Modelos mesoscópicos}
+
+Os modelos mesoscópicos ocupam uma posição intermediária entre os modelos macroscópicos e microscópicos. \citeonline{su_2024} indicam que esse tipo de simulação combina aspectos dos modelos macroscópicos e microscópicos, apresentando um nível de detalhe intermediário. De forma semelhante, \citeonline{dorokhin_2020} descrevem os modelos mesoscópicos como uma combinação entre a representação agregada dos fluxos e a consideração de elementos individuais do tráfego. Assim, o veículo pode existir como uma entidade separada no modelo, porém seu movimento e sua interação com os demais são descritos por relações mais simplificadas do que em uma simulação microscópica.
+
+Essa abordagem pode ser interessante quando se deseja analisar redes maiores, mas ainda mantendo algum nível de representação dos deslocamentos individuais. Segundo \citeonline{dorokhin_2020}, os modelos mesoscópicos preservam um nível relativamente alto de detalhe na descrição da rede viária, mas simplificam a reprodução da dinâmica do fluxo, o que permite ampliar a escala da rede simulada mantendo maior velocidade de simulação. No entanto, por não representar todas as interações individuais com o mesmo detalhamento de um modelo microscópico, essa abordagem apresenta limitações para investigar decisões específicas de condução, como distância de seguimento, aceitação de lacunas ou mudança de faixa.
+
+Apesar desse equilíbrio entre escala e detalhamento, a simplificação das interações individuais limita o uso de modelos mesoscópicos em análises que dependem de características específicas da condução. Nesses casos, abordagens com maior nível de detalhamento permitem representar de forma mais direta as interações entre veículos e motoristas \cite{dorokhin_2020}.
+
+\subsection{Modelos microscópicos}
+
+Os modelos microscópicos representam o tráfego em maior nível de detalhe. Nesse tipo de simulação, cada veículo é tratado individualmente, podendo possuir características próprias de movimento e interação. \citeonline{lopez_2018} indicam que, nos modelos microscópicos, cada veículo e sua dinâmica são modelados individualmente. Isso permite representar aspectos como aceleração, desaceleração, distância em relação ao veículo da frente, mudança de faixa, escolha de rota e resposta a elementos da via.
+
+\citeonline{brambila_2008} destaca que, na simulação microscópica, o par veículo-motorista pode ser considerado uma entidade ativa do sistema. Essa característica é importante porque permite analisar como decisões individuais influenciam o comportamento coletivo do tráfego. Assim, o resultado da simulação não depende apenas de valores médios de fluxo, mas também das interações entre os veículos ao longo do tempo.
+
+A movimentação e a interação dos veículos em modelos microscópicos são definidas por modelos comportamentais que representam diferentes situações da condução, como o acompanhamento do veículo à frente, a mudança de faixa e a entrada em fluxos de tráfego. Esses mecanismos permitem representar de forma mais detalhada as decisões tomadas durante o deslocamento e serão discutidos na seção seguinte.
+
+A principal vantagem da simulação microscópica, para este trabalho, está justamente na possibilidade de representar diferenças entre condutores. Como cada veículo pode receber parâmetros próprios, torna-se possível configurar perfis distintos de motoristas e observar como essas diferenças afetam o desempenho do tráfego. Por exemplo, motoristas com menor distância de seguimento, maior aceleração ou menor tempo de reação podem produzir resultados diferentes daqueles associados a perfis mais cautelosos.
+
+Apesar das vantagens, a simulação microscópica também exige mais cuidado. Como o modelo trabalha com maior nível de detalhe, a construção do cenário, a definição da demanda de veículos e a escolha dos parâmetros de comportamento podem influenciar bastante os resultados. \citeonline{balakrishna_2007} destacam que modelos microscópicos dependem da definição de entradas e parâmetros, como fluxos de origem-destino e coeficientes associados a modelos de perseguição e mudança de faixa, para que os resultados representem adequadamente as condições analisadas. Além disso, \citeonline{cobos_2020} apontam que a calibração dos parâmetros continua sendo uma tarefa desafiadora em modelos microscópicos de fluxo de tráfego. Mesmo assim, para estudos que envolvem comportamento de motoristas, essa abordagem tende a ser mais adequada do que os modelos agregados.
+
+Neste trabalho, a escolha pela simulação microscópica se justifica pelo objetivo de analisar o impacto de diferentes perfis de motoristas no desempenho do tráfego urbano. Como o foco está nas ações individuais dos condutores e nos efeitos dessas ações sobre o fluxo, é necessário utilizar um modelo capaz de representar veículos separadamente e permitir a alteração de parâmetros comportamentais. Dessa forma, a simulação microscópica oferece a base necessária para a construção dos cenários e para a comparação dos resultados obtidos.
+
+\section{Simulação microscópica e comportamento de motoristas}
+
+A possibilidade de representar individualmente os veículos torna a simulação microscópica adequada para estudos voltados ao comportamento dos motoristas. Nesse nível de modelagem, características relacionadas à condução podem ser incorporadas à dinâmica dos veículos, permitindo analisar como diferentes decisões e formas de reação influenciam suas interações ao longo da rede viária. \citeonline{brambila_2008} destaca que o par veículo-motorista pode ser considerado uma entidade ativa do sistema, sujeita às condições da via, aos veículos próximos e aos dispositivos de controle de tráfego.
+
+\subsection{Modelos de comportamento na condução}
+
+Entre os principais modelos utilizados em simulações microscópicas estão os modelos de perseguição de veículos, mudança de faixa e aceitação de lacunas. O modelo de perseguição de veículos, conhecido como \textit{car-following}, procura representar como um motorista ajusta sua velocidade de acordo com o veículo à frente. Essa decisão normalmente envolve fatores como distância entre veículos, velocidade relativa e capacidade de frenagem. \citeonline{gipps_1981} propôs um modelo comportamental de perseguição de veículos voltado à simulação computacional, considerando a segurança do condutor ao acelerar ou desacelerar durante o deslocamento.
+
+Esse tipo de modelo é importante porque muitas situações de trânsito urbano envolvem reações sucessivas entre veículos. \citeonline{brambila_2008} explica que, nos modelos de perseguição, existe uma relação direta entre o veículo estudado e o veículo que ele segue, de modo que o motorista procura adaptar-se ao veículo da frente e evitar colisões. Assim, fatores como tempo de reação, distância mantida e diferença de velocidade influenciam a resposta do veículo perseguidor. Dependendo dessas condições, uma pequena alteração no movimento de um veículo pode afetar os veículos seguintes, contribuindo para redução de velocidade, lentidão ou formação de filas.
+
+Além do movimento longitudinal, a mudança de faixa também é um comportamento relevante. \citeonline{brambila_2008} destaca que os modelos de mudança de pista procuram capturar as ações tomadas pelos motoristas durante esse tipo de manobra, considerando aspectos como segurança, trajetória e condições do tráfego. Em vias com mais de uma faixa, o motorista pode trocar de posição para ultrapassar, preparar uma conversão ou buscar uma faixa com melhor fluidez. Já a aceitação de lacunas, ou \textit{gap acceptance}, está relacionada à decisão de entrar em um fluxo, mudar de faixa ou realizar uma conversão quando existe um intervalo considerado seguro entre veículos \cite{brambila_2008}.
+
+\subsection{Heterogeneidade entre motoristas}
+
+Um ponto importante para este trabalho é que os motoristas não se comportam todos da mesma forma. Mesmo em uma mesma via e sob condições parecidas, diferentes condutores podem adotar velocidades, distâncias de seguimento e formas de reação bastante distintas. \citeonline{ossen_2011} analisam essa heterogeneidade no comportamento de \textit{car-following}, mostrando que diferenças entre motoristas podem ser observadas em dados reais de trajetórias veiculares.
+
+A heterogeneidade entre motoristas também pode produzir efeitos no comportamento coletivo do tráfego. \citeonline{zhai_2021}, ao analisarem um modelo heterogêneo com motoristas de características distintas, mostram que diferentes composições de condutores podem alterar a estabilidade do fluxo. Esse resultado reforça a importância de considerar diferenças individuais em estudos que buscam analisar o desempenho do tráfego a partir do comportamento dos motoristas.
+
+Além de influenciarem o comportamento do fluxo, essas diferenças individuais podem ser utilizadas para representar formas distintas de condução em ambientes simulados. \citeonline{witt_2019} abordam características comportamentais aplicáveis à simulação de tráfego, enquanto \citeonline{makridis_2023} discutem a caracterização da heterogeneidade dos motoristas a partir de diferenças observadas na dinâmica de condução. Essas abordagens mostram que a diversidade entre condutores pode ser traduzida em configurações computacionais, servindo como base para a definição de perfis de motoristas em ambientes simulados.
+
+\subsection{Perfis de motoristas em ambientes simulados}
+
+A definição de perfis de motoristas é uma forma prática de representar a diversidade comportamental dentro da simulação. Em vez de tentar reproduzir todos os detalhes psicológicos e sociais que influenciam um condutor real, o modelo utiliza parâmetros que afetam diretamente a condução. Entre esses parâmetros podem estar aceleração, desaceleração, velocidade desejada, tempo de reação, distância mínima de seguimento e tendência a aceitar ou rejeitar determinados espaços no tráfego.
+
+\citeonline{andrade_2024} investigam a inferência de perfis de comportamento de motoristas em ambientes simulados com o uso de gêmeos digitais. Esse tipo de abordagem mostra que a simulação pode ser utilizada não apenas para reproduzir o trânsito, mas também para estudar e comparar padrões de condução. Embora a proposta deste trabalho seja mais simples, a ideia de analisar perfis comportamentais em ambiente controlado está diretamente relacionada.
+
+No contexto deste projeto, os perfis de motoristas serão utilizados como uma abstração computacional. Isso significa que não se pretende afirmar que todos os condutores reais se encaixam perfeitamente em categorias fixas, como agressivo, normal ou cauteloso. A intenção é utilizar esses perfis como estratégia de experimentação, permitindo variar parâmetros de condução e observar seus efeitos sobre o tráfego. Essa simplificação é necessária para manter o estudo viável e, ao mesmo tempo, permitir uma análise comparativa.
+
+A relação entre comportamento individual e desempenho coletivo é um dos pontos centrais da simulação microscópica. Estudos indicam que diferenças entre motoristas podem influenciar a dinâmica e a estabilidade do fluxo de tráfego \cite{zhai_2021,makridis_2023}. Dessa forma, a utilização de perfis de condução permite representar essas diferenças de maneira controlada e comparar seus efeitos sobre métricas como tempo médio de viagem, velocidade média, formação de filas e vazão. Essa abordagem serve de base para os experimentos propostos neste trabalho, nos quais diferentes composições de perfis serão avaliadas em um mesmo cenário simulado.
+
+\section{Sistemas multiagentes aplicados à simulação de tráfego}
+
+Os sistemas multiagentes são formados por entidades autônomas, chamadas agentes, que interagem entre si e com o ambiente em que estão inseridas. Em simulações de tráfego, essa perspectiva é útil porque permite compreender o trânsito como um sistema composto por múltiplos elementos que tomam decisões locais e influenciam o comportamento coletivo. \citeonline{doniec_2008} destacam que abordagens multiagentes podem ser utilizadas para representar fenômenos complexos, especialmente quando o comportamento global resulta das ações e interações entre agentes. No caso do tráfego urbano, essa ideia se relaciona à forma como motoristas, veículos, vias e regras de circulação interagem durante o deslocamento.
+
+Na simulação de tráfego, os agentes podem representar diferentes elementos do sistema, como veículos, motoristas, semáforos ou sensores. Quando o foco está no comportamento dos condutores, o veículo ou o par veículo-motorista pode ser tratado como uma entidade que reage às condições ao redor, tomando decisões como acelerar, frear, manter distância, trocar de faixa ou escolher uma rota. \citeonline{gracian_2024} discutem modelos comportamentais de motoristas a partir de uma perspectiva baseada em agentes, destacando a importância desse tipo de abordagem para representar decisões de condução em ambientes de tráfego. Dessa forma, a modelagem baseada em agentes contribui para aproximar a simulação do caráter interativo e dinâmico do trânsito real.
+
+Um aspecto importante dessa abordagem é que o comportamento global do tráfego resulta da interação entre múltiplos agentes, e não apenas de decisões isoladas. \citeonline{doniec_2008} apresentam um modelo comportamental multiagente voltado à simulação de tráfego viário, no qual as decisões individuais dos condutores e as interações entre veículos contribuem para a formação do comportamento coletivo do sistema.
+
+A relação entre sistemas multiagentes e simuladores de tráfego também aparece em trabalhos que integram ferramentas específicas. \citeonline{soares_2014} apresentam uma plataforma que combina o simulador microscópico \gls{sumo} com o \textit{framework} multiagente \gls{jade}, com o objetivo de apoiar o desenvolvimento e a avaliação de soluções de tráfego baseadas em agentes. Embora este trabalho não tenha como objetivo implementar uma arquitetura multiagente completa, essa referência mostra que a aproximação entre simulação microscópica e conceitos de sistemas multiagentes já é explorada na literatura. Neste estudo, essa perspectiva será utilizada de forma conceitual, para fundamentar a representação de veículos e motoristas com características distintas dentro do ambiente simulado.
+
+Assim, os conceitos de sistemas multiagentes contribuem para este trabalho ao oferecer uma perspectiva para compreender o tráfego como resultado das interações entre entidades com características distintas. Essa fundamentação complementa a abordagem microscópica adotada, permitindo relacionar as decisões individuais dos motoristas aos efeitos observados no comportamento coletivo do sistema, sem que seja necessária a implementação de uma arquitetura multiagente específica.
+
+\section{Ferramentas de simulação de tráfego}
+
+Existem diferentes ferramentas voltadas à simulação de tráfego, cada uma com características próprias. A escolha da ferramenta depende do tipo de estudo que será realizado, do nível de detalhe necessário, da escala da rede, dos dados disponíveis e também de fatores práticos, como custo, documentação e facilidade de uso. Em trabalhos acadêmicos, esse último ponto acaba tendo bastante peso, pois nem sempre há acesso a softwares comerciais ou a bases de dados completas para calibração.
+
+Entre as ferramentas utilizadas na área estão simuladores como \gls{vissim}, \gls{aimsun}, CORSIM, Paramics, TransModeler, \gls{matsim}, AnyLogic, Synchro/SimTraffic e \gls{sumo}. Algumas dessas ferramentas são comerciais e possuem interfaces gráficas mais completas, visualização em três dimensões e recursos avançados para aplicações profissionais. Outras são abertas ou voltadas a aplicações mais específicas, podendo exigir maior configuração manual, mas oferecendo maior flexibilidade para pesquisa e experimentação.
+
+\citeonline{algherbal_2025} apresentam uma comparação entre diferentes softwares de simulação de tráfego, considerando critérios como tipo de modelo utilizado, disponibilidade, preço, sistema operacional, visualização e suporte a sistemas inteligentes de transporte. Os autores mostram que não existe uma única ferramenta superior para todos os casos. Cada simulador tende a ser mais adequado para determinados objetivos, como análise de interseções, rodovias, redes urbanas, transporte multimodal ou cenários envolvendo veículos conectados e autônomos.
+
+Ferramentas como \gls{vissim} e \gls{aimsun} são bastante conhecidas em estudos de tráfego. O \gls{vissim} permite simulações microscópicas, mesoscópicas e macroscópicas, além de oferecer recursos visuais avançados e suporte a diferentes modos de transporte. O \gls{aimsun} também possui ampla aplicação em redes urbanas e rodoviárias, podendo trabalhar com diferentes níveis de modelagem. Apesar dessas vantagens, são ferramentas comerciais, o que pode limitar seu uso em trabalhos acadêmicos quando não há licença institucional disponível.
+
+O CORSIM também é uma ferramenta tradicional de simulação microscópica, utilizada principalmente em estudos de corredores viários e redes urbanas. O Paramics, por sua vez, é conhecido pela representação tridimensional e pela capacidade de simular diferentes cenários de tráfego. Já o TransModeler oferece recursos para simulação em diferentes níveis de detalhe e pode ser utilizado em análises de planejamento e previsão. No entanto, assim como outras soluções comerciais, essas ferramentas podem apresentar barreiras relacionadas a custo, instalação, acesso e dependência de licença.
+
+Outra ferramenta relevante é o \gls{matsim}, voltada à simulação multiagente de transporte. Ela é especialmente interessante para estudos em larga escala, envolvendo atividades diárias e deslocamentos em redes maiores. Porém, para o objetivo deste trabalho, que busca analisar o comportamento de motoristas em um cenário urbano simplificado, o foco está mais na simulação microscópica do movimento dos veículos do que na modelagem ampla de atividades urbanas.
+
+Nesse contexto, o \gls{sumo} se apresenta como uma alternativa adequada. Segundo \citeonline{kotusevski_2009}, o \gls{sumo} é um simulador microscópico, \textit{open source} e portátil, projetado para lidar com redes rodoviárias. Além disso, permite a criação de redes de tráfego, a definição de rotas de veículos e a geração de arquivos de saída com informações úteis para análise. Esses aspectos tornam a ferramenta viável para pesquisas acadêmicas, principalmente quando se busca flexibilidade e baixo custo.
+
+Uma característica importante do \gls{sumo} é a possibilidade de trabalhar com redes criadas manualmente, redes geradas automaticamente ou redes importadas de outras fontes. \citeonline{kotusevski_2009} destacam que o \gls{sumo} permite definir rotas por meio de diferentes estratégias, como fluxos, matrizes origem-destino e rotas descritas em arquivos \gls{xml}. Embora isso possa tornar a configuração inicial menos intuitiva do que em ferramentas comerciais com interface mais visual, também oferece maior controle sobre os cenários simulados.
+
+Outro ponto relevante é que o \gls{sumo} produz diferentes tipos de saída, como informações sobre viagens, tempos de deslocamento, emissões, estados da rede, dados por faixa e dados por aresta \cite{kotusevski_2009}. Para este trabalho, essa possibilidade é importante porque as simulações precisarão gerar métricas que permitam comparar o desempenho do tráfego sob diferentes perfis de motoristas. Assim, dados como tempo de viagem, velocidade média, tempo parado e formação de filas podem ser utilizados na análise dos resultados.
+
+\citeonline{lopez_2018} também apresentam o \gls{sumo} como uma ferramenta de simulação microscópica de tráfego amplamente utilizada em pesquisas. A ferramenta oferece recursos para simulação de redes urbanas, controle de veículos e integração com aplicações externas. Essa integração é relevante porque permite automatizar simulações, alterar parâmetros e coletar resultados por meio de scripts, o que se aproxima da proposta deste trabalho.
+
+Com base nessas características, a escolha do \gls{sumo} considera tanto aspectos técnicos quanto práticos. Além de ser \textit{open source} e possuir documentação acessível, a ferramenta permite integração com Python, o que facilita a automação das simulações, a alteração de parâmetros e a organização dos resultados. Esses recursos são compatíveis com as necessidades previstas para os experimentos deste trabalho.
+
+É importante reconhecer que o \gls{sumo} também possui limitações. Algumas configurações exigem edição de arquivos \gls{xml} e uso de linha de comando, o que pode tornar o processo menos simples no início, enquanto ferramentas comerciais podem oferecer interfaces mais amigáveis e recursos visuais mais elaborados. Mesmo assim, considerando o escopo deste trabalho, o acesso gratuito, a flexibilidade, a representação individual dos veículos, a possibilidade de configurar parâmetros relacionados à condução e a geração de dados para análise tornam o \gls{sumo} uma ferramenta adequada para o desenvolvimento das simulações propostas.
+
+O Quadro~\ref{qua:ferramentas-simulacao} sintetiza as principais características das ferramentas discutidas nesta seção e destaca aspectos relevantes para a escolha do simulador utilizado no trabalho.
+
+\begin{quadro}[H]
+\centering
+\caption{Comparação simplificada entre ferramentas de simulação de tráfego}
+\label{qua:ferramentas-simulacao}
+\small
+\begin{tabular}{|p{2cm} | p{2.5cm} | p{3.8cm} | p{5.8cm}|}
+\hline
+\textbf{Ferramenta} & \textbf{Tipo de licença} & \textbf{Modelo predominante} & \textbf{Observação} \\
+\hline
+\gls{vissim} & Comercial & Microscópico & Possui interface avançada e recursos profissionais, mas depende de licença \\
+\hline
+\gls{aimsun} & Comercial & Micro, meso e macro & Adequado para diferentes escalas, porém com acesso limitado por custo \\
+\hline
+\gls{matsim} & \textit{Open source} & Multiagente & Forte em simulações de grande escala e atividades urbanas \\
+\hline
+\gls{sumo} & \textit{Open source} & Microscópico & Gratuito, flexível, integrável com Python e adequado à proposta deste trabalho \\
+\hline
+\end{tabular}
+
+\par\vspace{0.25cm}
+\begin{minipage}{\textwidth}
+\footnotesize Fonte: Adaptado de \citeonline{kotusevski_2009}, \citeonline{lopez_2018} e \citeonline{algherbal_2025}.
+\end{minipage}
+
+\end{quadro}
+
+\subsection{SUMO e modelos de comportamento veicular}
+
+No \gls{sumo}, o comportamento dos veículos pode ser configurado por meio de modelos e parâmetros que influenciam sua movimentação e interação ao longo da rede. \citeonline{lopez_2018} destacam que a ferramenta permite representar individualmente a dinâmica dos veículos, característica que possibilita ajustar aspectos relacionados à condução e analisar seus efeitos durante a simulação.
+
+Nos simuladores microscópicos, o movimento dos veículos depende de modelos comportamentais, como os modelos de perseguição de veículos, ou \textit{car-following}, responsáveis por representar como um veículo ajusta sua velocidade e sua distância em relação ao veículo à frente. \citeonline{mecheva_2022} discutem a modelagem do comportamento de motoristas com o uso do \gls{sumo} e Python, considerando diferentes modelos de \textit{car-following}, algoritmos de roteamento e parâmetros relacionados à condução. Entre os modelos disponíveis no simulador estão alternativas como Krauss e \textit{Intelligent Driver Model} (IDM). Embora este trabalho não tenha como objetivo comparar diferentes modelos internos do simulador, a escolha do modelo de comportamento veicular e de seus parâmetros faz parte da configuração da simulação e pode influenciar os resultados obtidos.
+
+Neste trabalho, o \gls{sumo} será utilizado como ferramenta para construir um cenário urbano simplificado e configurar perfis distintos de motoristas. A escolha dos parâmetros associados a esses perfis será realizada de forma compatível com as possibilidades do simulador, considerando a literatura sobre comportamento de motoristas, os parâmetros configuráveis da ferramenta e testes preliminares no cenário construído. Assim, a discussão sobre modelos de comportamento veicular no \gls{sumo} contribui para delimitar a base técnica da simulação, sem ampliar o escopo para uma comparação aprofundada entre modelos de \textit{car-following}.
+
+\section{Trabalhos correlatos}
+
+Esta seção apresenta alguns trabalhos relacionados à simulação de tráfego, modelagem de comportamento de motoristas e análise de perfis de condução. A intenção não é fazer uma revisão exaustiva sobre todos os estudos existentes na área, mas destacar pesquisas que se aproximam da proposta deste trabalho em algum aspecto, seja pelo uso de simulação microscópica, pela análise de comportamento de condutores ou pela representação de perfis distintos de motoristas.
+
+\citeonline{zhai_2021} propuseram um modelo heterogêneo de fluxo de tráfego considerando características de motoristas tímidos e agressivos. O trabalho parte da ideia de que muitos modelos tratam os condutores como homogêneos, apesar de, em situações reais, os motoristas apresentarem diferenças de comportamento. Para representar essa variação, os autores utilizam uma taxa de penetração de motoristas com diferentes características e analisam seus efeitos sobre a estabilidade do fluxo de veículos. Esse estudo se aproxima da proposta deste trabalho por considerar que perfis distintos de condução podem alterar o desempenho do tráfego. A diferença é que, enquanto o estudo de Zhai, Wu e Luo trabalha com um modelo matemático de fluxo heterogêneo, este trabalho pretende analisar os efeitos desses perfis em um cenário urbano simulado com apoio de uma ferramenta de microssimulação.
+
+\citeonline{mecheva_2022} investigaram a modelagem do comportamento de motoristas em simulação de tráfego utilizando \gls{sumo} e Python. O trabalho propõe uma metodologia para definir parâmetros de modelos de comportamento com base em dados de tráfego, considerando modelos de perseguição de veículos e algoritmos de roteamento. Essa pesquisa é relevante porque mostra a possibilidade de utilizar o \gls{sumo} em conjunto com scripts externos para configurar, executar e analisar simulações relacionadas ao comportamento de condução. Em relação ao presente trabalho, há proximidade no uso do \gls{sumo} e na preocupação com parâmetros comportamentais. No entanto, a proposta aqui é mais direcionada à comparação entre perfis de motoristas em um recorte urbano simplificado.
+
+\citeonline{andrade_2024} exploraram a inferência de perfis de comportamento de motoristas em ambientes simulados, utilizando gêmeos digitais e dados de telemetria. O estudo considera condições de condução cautelosa e agressiva, buscando identificar padrões de comportamento a partir dos dados coletados durante a simulação. Esse trabalho se relaciona diretamente com a proposta deste PTC, pois também trata da diferenciação entre perfis de motoristas em ambiente controlado. A principal diferença está no objetivo: enquanto Andrade et al. buscam inferir perfis a partir de dados de simulação, este trabalho pretende definir perfis previamente e observar como eles influenciam o desempenho do tráfego urbano.
+
+\citeonline{chah_2024} desenvolveram uma base de comportamentos simulados de motoristas utilizando o simulador \gls{sumo}. O trabalho considera a geração de dados associados a estilos de condução, como comportamentos normais ou perigosos, com o objetivo de apoiar aplicações relacionadas à segurança viária e serviços baseados no comportamento do condutor. A relação com este trabalho está no uso do \gls{sumo} para representar comportamentos distintos de motoristas. No entanto, enquanto Chah et al. concentram-se na construção de uma base de dados de comportamentos simulados, este estudo busca avaliar os efeitos desses comportamentos sobre métricas de desempenho do tráfego, como tempo de viagem, velocidade média, filas e vazão.
+
+\citeonline{park_2019} analisaram os impactos da direção agressiva sobre segurança e mobilidade em rodovias, utilizando uma abordagem de simulação multiagente associada a modelo microscópico de tráfego. O estudo busca compreender como eventos de condução agressiva podem afetar o fluxo e aumentar riscos em ambientes viários. Embora o cenário analisado seja diferente do proposto neste trabalho, pois está voltado a rodovias, a pesquisa é relevante por relacionar comportamento agressivo, simulação e desempenho do tráfego. A principal diferença é que este trabalho será aplicado a um cenário urbano simplificado, com foco na comparação entre perfis de condução e seus efeitos sobre a fluidez do trânsito.
+
+De forma geral, os trabalhos analisados mostram que a modelagem do comportamento de motoristas é um tema relevante em simulações de tráfego. Alguns estudos focam em modelos matemáticos de fluxo heterogêneo, outros na identificação de perfis de condução, na geração de bases simuladas ou na análise de comportamentos agressivos em cenários específicos. Em comum, esses trabalhos reforçam que considerar diferenças entre condutores pode tornar a análise de tráfego mais realista do que assumir um comportamento único para todos os veículos.
+
+A proposta deste trabalho se diferencia por buscar uma análise aplicada em um cenário urbano simplificado, baseado no entorno da Praça Nereu Ramos, em Videira/SC, utilizando simulação microscópica para comparar o impacto de diferentes perfis de motoristas sobre métricas de desempenho do tráfego. Assim, o foco não está apenas em representar comportamentos individuais, mas em observar como diferentes composições desses perfis podem influenciar o funcionamento geral do sistema simulado.
+
+O Quadro~\ref{qua:trabalhos-correlatos} apresenta uma síntese dos principais trabalhos correlatos discutidos nesta seção, destacando seu foco, sua relação com esta pesquisa e suas principais diferenças.
+
+\begin{quadro}[htbp]
+\centering
+\caption{Síntese dos trabalhos correlatos}
+\label{qua:trabalhos-correlatos}
+\small
+\begin{tabular}{|p{3.5cm} | p{3.5cm} | p{3.5cm} | p{4cm}|}
+\hline
+\textbf{Trabalho} & \textbf{Foco principal} & \textbf{Relação com este\newline trabalho} & \textbf{Diferença principal} \\
+\hline
+\citeonline{zhai_2021} & Motoristas tímidos e agressivos em fluxo heterogêneo & Considera perfis distintos de condutores & Abordagem mais matemática, sem foco em cenário urbano real \\
+\hline
+\citeonline{mecheva_2022} & Modelagem de comportamento no \gls{sumo} & Usa \gls{sumo} e parâmetros comportamentais & Foco em metodologia de parametrização \\
+\hline
+\citeonline{andrade_2024} & Inferência de perfis em ambiente simulado & Trabalha com perfis cauteloso e agressivo & Busca inferir perfis, enquanto este trabalho define perfis previamente \\
+\hline
+\citeonline{chah_2024} & Base de comportamentos simulados no \gls{sumo} & Usa \gls{sumo} para gerar comportamentos distintos & Foco em base de dados, não em desempenho do tráfego urbano \\
+\hline
+\citeonline{park_2019} & Direção agressiva, segurança e mobilidade & Relaciona comportamento agressivo e simulação & Cenário rodoviário, não urbano \\
+\hline
+\end{tabular}
+
+\par\vspace{0.25cm}
+\begin{minipage}{\textwidth}
+\footnotesize Fonte: Elaborado pelo autor.
+\end{minipage}
+
+\end{quadro}
+
+% 
+%--------- FIM DESENVOLVIMENTO------------
+%

@@ -2,9 +2,9 @@
 
 \section{Definição e parametrização dos perfis}
 
-Após a preparação do cenário, foram definidos os três perfis de motoristas previstos desde o PTC: cauteloso, normal e agressivo. Os perfis foram implementados como tipos de veículos no \gls{sumo}, utilizando o modelo de acompanhamento Krauss e um conjunto de parâmetros relacionados ao comportamento longitudinal, à velocidade desejada, à mudança de faixa e à interação em cruzamentos.
+Após a preparação do cenário, foram definidos os três perfis de motoristas previstos desde o PTC: cauteloso, normal e agressivo. Os perfis foram implementados como tipos de veículos no \gls{sumo}, utilizando o modelo de acompanhamento Krauss e um conjunto de parâmetros relacionados ao comportamento longitudinal, isto é, ao avanço do veículo ao longo da via, à velocidade desejada, à mudança de faixa e à interação em cruzamentos.
 
-A direção das diferenças entre os perfis foi baseada na fundamentação apresentada no capítulo anterior e em referências que utilizam parâmetros do SUMO para representar comportamentos distintos de condução \cite{mecheva_2022,camlica_2022,yavuz_2025}. Os valores não representam uma calibração empírica de motoristas de Videira. Eles foram definidos como uma parametrização sintética e moderada, apoiada na literatura, nos parâmetros disponíveis no simulador e nos testes preliminares de plausibilidade realizados no cenário.
+A direção das diferenças entre os perfis foi baseada na fundamentação apresentada no capítulo anterior e em referências que utilizam parâmetros do \gls{sumo} para representar comportamentos distintos de condução \cite{mecheva_2022,camlica_2022,yavuz_2025}. No caso de \citeonline{yavuz_2025}, a parametrização é discutida em um contexto de tráfego misto com veículos conectados e autônomos, sendo utilizada aqui apenas como referência para a direção das diferenças entre parâmetros. Os valores adotados neste trabalho não representam uma calibração empírica de motoristas de Videira. Eles foram definidos como uma parametrização sintética e moderada, apoiada na literatura, nos parâmetros disponíveis no simulador e nos testes preliminares realizados no cenário.
 
 A Tabela~\ref{tab:parametros-perfis} apresenta a configuração final utilizada nos experimentos.
 
@@ -48,13 +48,15 @@ A Tabela~\ref{tab:parametros-perfis} apresenta a configuração final utilizada 
 \end{minipage}
 \end{table}
 
-Os parâmetros \texttt{tau}, \texttt{minGap}, \texttt{accel}, \texttt{decel}, \texttt{speedFactor}, \texttt{lcAssertive} e \texttt{impatience} foram utilizados para diferenciar os perfis. Os parâmetros \texttt{sigma}, \texttt{speedDev}, \texttt{lcStrategic} e \texttt{jmTimegapMinor} permaneceram iguais entre os três tipos, funcionando como elementos de controle da configuração.
+Os parâmetros da Tabela~\ref{tab:parametros-perfis} representam aspectos diferentes da condução. O \texttt{tau} indica o intervalo temporal desejado em relação ao veículo à frente, enquanto \texttt{minGap} define a distância mínima de seguimento em baixa velocidade ou parada. Os parâmetros \texttt{accel} e \texttt{decel} representam, respectivamente, as capacidades de aceleração e desaceleração. O \texttt{sigma} controla a variação aleatória do comportamento no modelo Krauss. O \texttt{speedFactor} ajusta a velocidade desejada em relação ao limite da via e o \texttt{speedDev} representa a dispersão associada a esse fator. Na mudança de faixa, \texttt{lcAssertive} regula o quanto o veículo aceita espaços menores para realizar a manobra, enquanto \texttt{lcStrategic} está relacionado às mudanças necessárias para seguir a rota. O parâmetro \texttt{impatience} representa a tendência de o veículo tornar-se mais disposto a aceitar condições menos confortáveis após esperar, e \texttt{jmTimegapMinor} define o intervalo temporal mínimo considerado na entrada diante de veículos com prioridade de passagem.
+
+Para diferenciar os perfis foram utilizados \texttt{tau}, \texttt{minGap}, \texttt{accel}, \texttt{decel}, \texttt{speedFactor}, \texttt{lcAssertive} e \texttt{impatience}. Já \texttt{sigma}, \texttt{speedDev}, \texttt{lcStrategic} e \texttt{jmTimegapMinor} permaneceram iguais entre os três tipos, funcionando como elementos de controle da configuração.
 
 O perfil normal foi utilizado como referência intermediária. O perfil cauteloso recebeu maior intervalo temporal e maior distância mínima de seguimento, menor velocidade desejada, menor assertividade na mudança de faixa e valor negativo de impaciência. O perfil agressivo recebeu alterações no sentido oposto. Essa organização foi adotada para produzir três comportamentos comparáveis sem associar o conceito de agressividade a um único parâmetro, uma vez que diferentes aspectos da condução atuam de forma conjunta.
 
 \section{Composições dos perfis}
 
-Além de comparar os três perfis individualmente, o experimento foi estruturado para avaliar diferentes composições de motoristas dentro da mesma demanda. Foram definidas sete composições, apresentadas na Tabela~\ref{tab:composicoes-perfis}.
+O experimento foi estruturado para avaliar diferentes composições de motoristas dentro da mesma demanda. Foram definidas sete composições, apresentadas na Tabela~\ref{tab:composicoes-perfis}. Apenas REF é uma composição homogênea, formada integralmente pelo perfil normal; os demais cenários combinam dois ou três perfis em diferentes proporções. A matriz adotada não incluiu cenários com 100\% de motoristas cautelosos ou 100\% de motoristas agressivos.
 
 \begin{table}[H]
 \centering
@@ -90,17 +92,17 @@ MIX\_A & Predominância agressiva & 20\% & 20\% & 60\% \\
 
 A composição REF foi utilizada como referência para as comparações, por conter apenas motoristas com perfil normal. As demais composições permitem observar tanto situações de predominância de um comportamento quanto misturas entre os três perfis.
 
-A atribuição dos perfis aos veículos foi automatizada pelo script \texttt{scripts/atribuir\_perfis.py}. Para cada composição, o número de veículos de cada tipo é calculado a partir das proporções definidas. Quando a quantidade total não permite uma divisão inteira exata, os veículos restantes são distribuídos pelos maiores restos das proporções calculadas. Em seguida, os índices dos veículos são embaralhados de forma reprodutível com a semente da execução e os tipos comportamentais são atribuídos conforme as quantidades obtidas.
+A atribuição dos perfis aos veículos foi automatizada por um script desenvolvido para o trabalho. Para cada composição, o número de veículos de cada tipo é calculado a partir das proporções definidas. Quando a quantidade total não permite uma divisão inteira exata, os veículos restantes são distribuídos pelos maiores restos das proporções calculadas. Em seguida, os índices dos veículos são embaralhados de forma reprodutível com a semente da execução e os tipos comportamentais são atribuídos conforme as quantidades obtidas.
 
 \section{Configuração dos experimentos}
 
 O experimento principal combinou três níveis de demanda, sete composições de perfis e 30 sementes pseudoaleatórias. Os níveis de demanda foram os definidos no capítulo anterior: 300, 450 e 625 veículos, todos programados para entrada no intervalo de 0 a 600 segundos.
 
-A simulação foi executada com o Eclipse SUMO 1.27.1. O passo temporal foi definido em 0,1 segundo e o término máximo de cada execução em 1800 segundos. Esse valor corresponde ao limite configurado para a simulação e não ao tempo necessário para esvaziar a rede, que é obtido posteriormente a partir da última chegada registrada.
+A simulação foi executada com o Eclipse \gls{sumo} 1.27.1. O passo temporal foi definido em 0,1 segundo e o término máximo de cada execução em 1800 segundos. Esse valor corresponde ao limite configurado para a simulação e não ao tempo necessário para esvaziar a rede, que é obtido posteriormente a partir da última chegada registrada.
 
-Foram mantidas ainda as seguintes configurações globais: \texttt{time-to-impatience = 45 s}, \texttt{time-to-teleport = -1}, verificação de colisões em cruzamentos ativada e ação de colisão configurada para registro de aviso. As saídas temporais de resumo e filas foram registradas em intervalos de 1 segundo.
+Foram mantidas ainda as seguintes configurações globais: \textit{time-to-impatience} igual a 45 s, \textit{time-to-teleport} igual a -1, verificação de colisões em cruzamentos ativada e ação de colisão configurada para registro de aviso. Como discutido no capítulo anterior, a desativação dos \textit{teleports} evita que veículos retidos sejam reposicionados artificialmente durante a execução. A verificação de colisões foi mantida como mecanismo de diagnóstico de conflitos operacionais. As saídas temporais de resumo e filas foram registradas em intervalos de 1 segundo.
 
-A configuração de rede, demanda e perfis permaneceu congelada durante toda a coleta oficial. Dessa forma, as diferenças entre execuções decorrem da demanda gerada para cada semente e da composição comportamental avaliada, sem retuning posterior em função dos resultados.
+A configuração de rede, demanda e perfis permaneceu congelada durante toda a coleta oficial. Dessa forma, não foram realizados ajustes posteriores na rede, na demanda ou nos perfis em função dos resultados observados.
 
 \section{Repetições e sementes pseudoaleatórias}
 
@@ -110,21 +112,15 @@ Para cada combinação de semente e nível de demanda, a demanda-base foi gerada
 
 Esse procedimento preserva o pareamento entre composições dentro de uma mesma semente e nível de demanda. Dessa forma, as comparações podem ser realizadas entre cenários submetidos à mesma realização de demanda, reduzindo a influência de diferenças aleatórias na geração das viagens.
 
-A combinação de 30 sementes, três níveis de demanda e sete composições resultou em:
-
-\[
-30 \times 3 \times 7 = 630
-\]
-
-execuções no experimento principal.
+A combinação de 30 sementes, três níveis de demanda e sete composições resultou em \(30 \times 3 \times 7 = 630\) execuções no experimento principal.
 
 \section{Execução das simulações}
 
-A coleta oficial foi automatizada pelo script \texttt{scripts/executar\_experimento\_final.ps1}. Antes da execução dos cenários, o script gera ou recupera a demanda-base correspondente à semente e ao nível de demanda. Em seguida, o arquivo de rotas é copiado para cada composição e recebe a atribuição dos perfis por meio do script específico.
+A coleta oficial foi automatizada por um script desenvolvido para executar sistematicamente todas as combinações previstas. Antes de cada conjunto de cenários, o procedimento gera ou recupera a demanda-base correspondente à semente e ao nível de demanda. Em seguida, essa mesma demanda é reutilizada nas sete composições e recebe a atribuição dos perfis correspondente a cada cenário.
 
-Para cada execução, foram preservados os principais arquivos de saída do SUMO: \texttt{tripinfo.xml}, \texttt{stats.xml}, \texttt{summary.xml}, \texttt{queues.xml}, \texttt{lanechanges.xml}, \texttt{collisions.xml}, além dos arquivos de log. A configuração também manteve a escrita de informações sobre viagens inacabadas, permitindo detectar situações em que a demanda não fosse integralmente atendida.
+Para cada execução, foram preservadas saídas do \gls{sumo} com informações de viagem, estatísticas gerais, evolução temporal, filas, mudanças de faixa e colisões, além dos arquivos de log. A configuração também manteve informações sobre viagens inacabadas, permitindo detectar situações em que a demanda não fosse integralmente atendida.
 
-O procedimento de execução criou ainda um registro com a chave formada por semente, demanda e composição, os horários de início e término e o estado de cada execução. Um \textit{snapshot} da rede, da configuração de demanda, dos perfis e dos scripts principais foi armazenado junto à coleta, acompanhado de hashes SHA-256 e da versão do SUMO. Esses registros foram utilizados para preservar a rastreabilidade da configuração experimental.
+O procedimento de execução criou ainda um registro com a chave formada por semente, demanda e composição, os horários de início e término e o estado de cada execução. Também foi armazenada uma cópia congelada da rede, da configuração de demanda, dos perfis e dos principais scripts utilizados. Esses arquivos foram acompanhados por hashes SHA-256, valores calculados a partir do conteúdo dos arquivos e utilizados para verificar posteriormente se eles permaneceram inalterados. A versão do \gls{sumo} também foi registrada, preservando a rastreabilidade da configuração experimental.
 
 \section{Coleta e operacionalização das métricas}
 
@@ -132,7 +128,7 @@ As cinco métricas previstas no PTC foram mantidas na análise final: tempo méd
 
 O tempo médio de viagem foi calculado pela média do campo \texttt{duration} das viagens concluídas. A velocidade média principal foi obtida calculando, para cada veículo, a razão entre o comprimento da rota e a duração da viagem e, em seguida, tomando a média dessas velocidades individuais. Essa definição foi mantida separada da razão entre a distância total percorrida e o tempo total acumulado, registrada apenas como medida complementar.
 
-O tempo parado foi representado pela média de \texttt{waitingTime} entre todas as viagens, incluindo veículos com valor igual a zero. Dessa forma, a métrica representa o tempo de espera acumulado pelo mecanismo do SUMO e não apenas a média entre os veículos que efetivamente pararam.
+O tempo parado foi representado pela média do campo \texttt{waitingTime} entre todas as viagens, incluindo veículos com valor igual a zero. Esse campo acumula o tempo que o \gls{sumo} classifica como espera segundo seu critério interno; portanto, a métrica não representa todo período de circulação lenta e não foi calculada apenas entre os veículos que efetivamente pararam.
 
 Para as filas, a fonte principal foi o arquivo \texttt{queues.xml}. A medida global principal utiliza a janela de 0 a 600 segundos e calcula, a cada amostra de 1 segundo, a soma dos comprimentos de fila exportados nas faixas elegíveis da rede. A média dessas 600 somas constitui o indicador principal, expresso em metros agregados entre faixas. Esse valor não representa uma única fila contínua de mesmo comprimento, mas uma síntese espacial da retenção registrada na rede. A janela de 0 a 1800 segundos foi preservada como complemento, assim como a decomposição entre faixas externas e internas e os máximos por faixa.
 
@@ -144,12 +140,23 @@ F_{600} = \frac{C_{600}}{600} \times 3600
 
 e expressa em veículos por hora. Essa medida representa a taxa equivalente de viagens concluídas durante a janela de geração da demanda. Ela não deve ser interpretada como volume de entrada programado, fluxo em um detector, capacidade máxima da rede ou vazão estacionária.
 
-Além das cinco métricas principais, foram extraídos indicadores complementares e de controle, como atraso de inserção, tempo total desde a partida programada, \textit{timeLoss}, última chegada, tempo de drenagem após 600 segundos, percentual de veículos com espera, frenagens de emergência, colisões, \textit{teleports} e comprimento médio das rotas. Esses indicadores auxiliam na interpretação e na verificação da integridade das execuções, sem substituir as métricas definidas no PTC.
+Além das cinco métricas principais, foram extraídos indicadores complementares e de controle, como atraso de inserção, tempo total desde a partida programada, \textit{timeLoss}, última chegada, tempo de drenagem após 600 segundos, percentual de veículos com espera, frenagens de emergência, colisões, \textit{teleports} e comprimento médio das rotas. As frenagens de emergência, colisões e \textit{teleports} foram mantidos como indicadores de diagnóstico do funcionamento da simulação, e não como medidas diretas de segurança viária real. Esses indicadores auxiliam na interpretação e na verificação da integridade das execuções, sem substituir as métricas definidas no PTC.
 
 \section{Consolidação e verificação das execuções}
 
-Após a coleta, os arquivos foram processados pelo script \texttt{scripts/consolidar\_experimento.py}, seguindo o protocolo de métricas versão 0.2. A base central foi organizada com uma linha para cada combinação de semente, demanda e composição, totalizando as 630 execuções do experimento.
+Após a coleta, os arquivos foram processados por um procedimento automatizado de consolidação, seguindo o protocolo de métricas definido para o estudo. A base central foi organizada com uma linha para cada combinação de semente, demanda e composição, totalizando as 630 execuções do experimento.
 
-O consolidador verificou a cobertura completa da matriz experimental, a correspondência entre demandas e rotas, a quantidade de viagens concluídas, as proporções efetivamente atribuídas dos perfis, a integridade dos arquivos XML, a grade temporal das filas e os principais contadores de controle. Diferenças estruturais deveriam interromper a publicação da base completa, em vez de serem convertidas silenciosamente em valores ausentes ou zeros.
+O procedimento verificou a cobertura completa da matriz experimental, a correspondência entre demandas e rotas, a quantidade de viagens concluídas, as proporções efetivamente atribuídas dos perfis, a integridade dos arquivos \gls{xml}, a grade temporal das filas e os principais contadores de controle. Ele foi configurado para interromper a consolidação diante de diferenças estruturais, em vez de convertê-las silenciosamente em valores ausentes ou zeros.
 
 A consolidação integral foi concluída com as 630 execuções válidas e sem exclusão de sementes. O pareamento entre composições foi preservado na base por meio das chaves de semente e demanda. Essa organização fornece a base para as comparações apresentadas no capítulo de resultados, no qual os valores de cada composição são analisados em relação ao cenário REF correspondente à mesma realização de demanda.
+
+\section{Procedimento de análise estatística}
+
+A análise inferencial foi concentrada no tempo médio de viagem, definido como o principal indicador para a comparação entre as composições. Para cada nível de demanda, cada uma das seis composições diferentes de REF foi comparada com a execução de referência correspondente à mesma semente. Dessa forma, foram formados 18 contrastes pareados: seis composições em três níveis de demanda. A unidade de comparação permaneceu sendo a execução associada a uma semente, e não cada veículo individualmente.
+
+Para uma mesma semente e demanda, calculou-se a diferença entre o tempo médio de viagem da composição avaliada e o valor de REF. Em seguida, a estimativa principal de cada contraste foi obtida pela média das 30 diferenças. Valores negativos indicam menor tempo médio de viagem que REF e valores positivos indicam maior tempo.
+
+Para representar a incerteza dessas comparações e considerar os 18 contrastes como uma única família, foram calculados intervalos simultâneos com nível conjunto nominal de 95\% por meio de \textit{bootstrap} studentizado \textit{max-t} em uma etapa, com 1.000.000 de reamostragens. Em cada reamostragem, as 30 sementes foram sorteadas com reposição, utilizando os mesmos índices para todos os 18 contrastes, preservando assim a dependência existente entre comparações da mesma realização experimental. As diferenças foram padronizadas pelos respectivos erros-padrão e o maior valor absoluto entre os 18 contrastes foi utilizado para determinar o limite comum dos intervalos \cite{romano_wolf_2005_stepwise,diciccio_efron_1996_bootstrap}.
+
+Esse procedimento foi definido durante a etapa de análise dos dados, após a análise descritiva, e deve ser interpretado como uma avaliação exploratória do modelo, não como um procedimento previamente registrado antes da coleta. Não foram calculados valores de \textit{p}. As demais métricas previstas no PTC --- velocidade média, tempo parado, filas e vazão --- permaneceram na análise descritiva, juntamente com os indicadores complementares. Dessa forma, os intervalos simultâneos do tempo de viagem não foram utilizados para atribuir significância estatística às diferenças observadas nas outras métricas.
+
